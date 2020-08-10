@@ -12,8 +12,8 @@ defmodule AliasSorter do
       :world
 
   """
-  @spec sort_string(String.t()) :: String.t()
-  def sort_string(string) do
+  @spec sort_string!(String.t()) :: String.t()
+  def sort_string!(string) when is_binary(string) do
     lines =
       string
       |> String.split(~r<\n>)
@@ -30,6 +30,8 @@ defmodule AliasSorter do
       end)
       |> Enum.into(%{})
 
+    alias_lines_numbers = Map.keys(alias_lines)
+
     sorted_alias =
       Enum.sort(alias_lines, fn {_number1, line1}, {_number2, line2} ->
         String.trim(line1) <= String.trim(line2)
@@ -38,7 +40,7 @@ defmodule AliasSorter do
     lines
     |> Enum.reduce({0, []}, fn {current_line, line_number},
                                {sorted_alias_tracker, lines_so_far} ->
-      if line_number in Map.keys(alias_lines) do
+      if line_number in alias_lines_numbers do
         {sorted_alias_tracker + 1,
          [sorted_alias |> Enum.at(sorted_alias_tracker) |> elem(1) | lines_so_far]}
       else
