@@ -2,16 +2,6 @@ defmodule AliasSorter do
   @moduledoc """
   Documentation for AliasSorter.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> AliasSorter.hello()
-      :world
-
-  """
   @spec sort_string!(String.t()) :: String.t()
   def sort_string!(string) when is_binary(string) do
     lines =
