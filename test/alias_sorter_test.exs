@@ -1,4 +1,4 @@
-defmodule AliasSorterTest do
+defmodule DirectiveSorterTest do
   use ExUnit.Case
 
   describe "sort_string!/1" do
@@ -30,11 +30,11 @@ defmodule AliasSorterTest do
       simple_right_file: simple_right_file,
       simple_wrong_file: simple_wrong_file
     } do
-      assert simple_right_file == AliasSorter.sort_string!(simple_wrong_file)
+      assert simple_right_file == DirectiveSorter.sort_string!(simple_wrong_file)
     end
 
     test "should not change strings that are right", %{simple_right_file: simple_right_file} do
-      assert simple_right_file == AliasSorter.sort_string!(simple_right_file)
+      assert simple_right_file == DirectiveSorter.sort_string!(simple_right_file)
     end
   end
 end

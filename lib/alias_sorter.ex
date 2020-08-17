@@ -1,6 +1,6 @@
-defmodule AliasSorter do
+defmodule DirectiveSorter do
   @moduledoc """
-  Documentation for AliasSorter.
+  Documentation for DirectiveSorter.
   """
   @spec sort_string!(String.t()) :: String.t()
   def sort_string!(string) when is_binary(string) do

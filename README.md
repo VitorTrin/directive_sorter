@@ -1,4 +1,4 @@
-# AliasSorter
+# DirectiveSorter
 
 **TODO: Add description**
 
